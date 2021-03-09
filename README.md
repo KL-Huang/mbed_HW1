@@ -1,6 +1,6 @@
 # mbed_HW1
- (1) how to setup and run my program:
-First, download "107061249.csv" and "HW1.py", then put them into the same directory.
+how to setup and run my program:
+(1) First, download "107061249.csv" and "HW1.py", then put them into the same directory.
 Second, open the terminal, use the command
     $ python HW1.py
 then the terminal will show the results.
