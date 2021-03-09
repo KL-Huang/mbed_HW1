@@ -33,12 +33,12 @@ for i in station:
    for d in target_data2:
       if d['TEMP'] > top:
          top = d['TEMP']
-         label = d['station_id']
-   tmp.append(label)
-   tmp.append(d['TEMP'])
+   tmp.append(i)
+   if top == '-999.000':
+      tmp.append('None')
+   else:   
+      tmp.append(top)
    output_data.append(tmp)
-# Retrive ten data points from the beginning.
-#target_data = data[:10]
 
 #=======================================
 
