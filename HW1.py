@@ -8,7 +8,7 @@ import csv
 # Part. 2
 #=======================================
 # Read cwb weather data
-cwb_filename = '<student_id>.csv'
+cwb_filename = '107061249.csv'
 data = []
 header = []
 with open(cwb_filename) as csvfile:
@@ -22,15 +22,28 @@ with open(cwb_filename) as csvfile:
 #=======================================
 # Analyze data depend on your group and store it to target_data like:
 # Retrive all data points which station id is "C0X260" as a list.
-# target_data = list(filter(lambda item: item['station_id'] == 'C0X260', data))
-
+station = ['C0A880', 'C0F9A0', 'C0G640', 'C0R190', 'C0X260']
+output_data = []
+target_data = list(filter(lambda item: item['TEMP'] != '-99.000', data))
+target_data = list(filter(lambda item: item['TEMP'] != '-999.000', target_data))
+for i in station:
+   tmp = []
+   target_data2 = list(filter(lambda item: item['station_id'] == i, target_data))
+   top = '-999.000'
+   for d in target_data2:
+      if d['TEMP'] > top:
+         top = d['TEMP']
+         label = d['station_id']
+   tmp.append(label)
+   tmp.append(d['TEMP'])
+   output_data.append(tmp)
 # Retrive ten data points from the beginning.
-target_data = data[:10]
+#target_data = data[:10]
 
 #=======================================
 
 # Part. 4
 #=======================================
 # Print result
-print(target_data)
+print(output_data)
 #========================================
