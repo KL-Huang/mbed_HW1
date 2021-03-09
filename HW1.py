@@ -29,12 +29,12 @@ target_data = list(filter(lambda item: item['TEMP'] != '-999.000', target_data))
 for i in station:
    tmp = []
    target_data2 = list(filter(lambda item: item['station_id'] == i, target_data))
-   top = '-999.000'
+   top = -999.000
    for d in target_data2:
-      if d['TEMP'] > top:
-         top = d['TEMP']
+      if float(d['TEMP']) > top:
+         top = float(d['TEMP'])
    tmp.append(i)
-   if top == '-999.000':
+   if top == -999.000:
       tmp.append('None')
    else:   
       tmp.append(top)
